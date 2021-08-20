@@ -9,7 +9,7 @@ It consist of multiple modules for solving specific problems:
 * Cholesky
 * QR
 
-#Run
+# Run
 
     g++ -I/source/includes main.cpp numerica.cpp
 
