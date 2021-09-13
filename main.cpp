@@ -1,8 +1,27 @@
 #include <iostream>
-#include "numerica.h"
+#include "rng.h"
+#include <cmath>
+#include <vector>
+
+using namespace std;
+
 
 int main(){
 	
-	std::cout << add(1,2) << std::endl;
+	int a = 2;
+	int b = 33;
+	int m = 50;
+	int seed = 5;
+	std::vector<double> v;
+	v = lcg_double(a,b,m,seed);
+	
+	for(auto i : v)
+	{
+		std::cout << i << "\n";	
+	}
+	
 	return 0;
 }
+
+
+

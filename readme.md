@@ -1,16 +1,15 @@
-# Numerica++
-Numerica++ is a c++ numerical library.
+# rng.cpp
 
-It consist of multiple modules for solving specific problems:
+rng.cpp is an implementation of pseudo random number generation algorithms.
 
-**Matrix factorization**
-* LU
-* LDM^T
-* Cholesky
-* QR
+**Algorithms**
+* Linear Congruential Generator
+	* lcg_int
+	* lcg_double
+* Linear Feedback Shift Register
 
 ## Run
 
-    g++ -I/source/includes main.cpp numerica.cpp
+    g++ -I/source/includes main.cpp rng.cpp
 
 
