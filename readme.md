@@ -9,8 +9,10 @@ rng.cpp is an implementation of pseudo random number generation algorithms.
 * Multiple Recursive Generator
 * Linear Feedback Shift Register
 
-## Run
+## Use
 
-    g++ -I/source/includes main.cpp rng.cpp
+	#include "rng.h"	
 
+	g++ -I/source/includes main.cpp rng.cpp
+	
 
