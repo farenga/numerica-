@@ -7,12 +7,12 @@
 
 
 // Linear Congruential Generator - INT
-std::vector<int> lcg_int(int a, int b, int m, int seed){
+std::vector<int> lcg_int(int a, int b, int m, int seed, int maxN){
 
 	int xk = seed;
 	std::vector<int> x;
 	
-	for(int k = 0; k<=m; ++k)
+	for(int k = 0; k<=maxN; ++k)
 	{
 		xk = (a*xk + b) % m;
 		x.push_back(xk);
@@ -23,12 +23,12 @@ std::vector<int> lcg_int(int a, int b, int m, int seed){
 }
 
 // Linear Congruential Generator - FLOAT in (0,1)
-std::vector<double> lcg_double(int a, int b, int m, int seed){
+std::vector<double> lcg_double(int a, int b, int m, int seed, int maxN){
 
 	int xk = seed;
 	double uk;
 	std::vector<double> u;
-	for(int k = 0; k<=m; ++k)
+	for(int k = 0; k<=maxN; ++k)
 	{
 		xk = (a*xk + b) % m;
 		double xk_double = xk;
@@ -42,16 +42,18 @@ std::vector<double> lcg_double(int a, int b, int m, int seed){
 
 
 // Multiple Recursive Generator - INT
-std::vector<int> mrg_int(std::vector<int> a, int b, int m, int seed, int q){
+// Fixed order = length of input vector a
+std::vector<int> mrg_int(std::vector<int> a, int b, int m, int seed, int q, int maxN){
 
 	int xk = seed;
 	std::vector<int> x;
 	x.push_back(xk);
-
-	for(int k = 0; k<=m; ++k)
+	int innerProd;
+	for(int k = 0; k<=maxN; ++k)
 	{	
-		std::vector<int> suba {a.begin(), a.begin()+k};
-		xk = inner_product(suba.begin(), suba.end(), x.begin(),0);
+			
+		innerProd = inner_product(a.begin(), a.end(), x.begin(),0);
+		xk = innerProd % m;
 		x.push_back(xk);
 	}
 
